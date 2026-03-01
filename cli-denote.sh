@@ -10,7 +10,7 @@ dndate () {
     date +"%Y%m%dT%H%M%S"
 }
 
-# Get a new filename based on user input.
+# Get a note title based on user input.
 dntitle () {
     local title
     read -p 'Note title: ' title
