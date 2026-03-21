@@ -1,9 +1,9 @@
+#!/bin/sh
+
 # Denote-style creation of notes on the CLI.
 
-# Either source this file in your ~/.bashrc, or just copy the function
-# definitions directly into that file.
-
-# Use `dnnote` to create a new note using the `nano` text editor.
+# You will probably want to copy this to "~/.local/bin/clid" (assuming
+# that is in your $PATH), and then do "chmod +x" on it.
 
 # Get a unique identifier based on the current time.
 dndate () {
@@ -22,17 +22,17 @@ dntags () {
     local tags
     local input
     local i=1
-    while test "$i" == 1 || [ -n "$input" ]
+    while test "$i" = 1 || [ -n "$input" ]
     do
         read -p "Note tag #$i: " input
         if [ -n "$input" ]; then
-            if [ $i == 1 ]; then
+            if [ "$i" = 1 ]; then
                 tags=__"$input"
             else
                 tags="$tags"_"$input"
             fi
         fi
-        ((i++))
+        i=$((i+1))
     done
     echo $tags
 }
@@ -45,6 +45,4 @@ dnfilename () {
     echo "$ndate"--"$ntitle$ntags.txt"
 }
 
-dnnote () {
-    nano $(dnfilename)
-}
+$EDITOR $(dnfilename)
