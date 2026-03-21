@@ -1,9 +1,13 @@
 #!/bin/sh
 
-# Denote-style creation of notes on the CLI.
+# Denote-style creation of notes on the CLI.  This is based on the
+# file-naming scheme used by the Emacs Denote package.  See
+# https://protesilaos.com/emacs/denote#h:4e9c7512-84dc-4dfb-9fa9-e15d51178e5d
+# for more information.
 
-# You will probably want to copy this to "~/.local/bin/clid" (assuming
-# that is in your $PATH), and then do "chmod +x" on it.
+# You will probably want to copy this file to "~/.local/bin/clid"
+# (assuming that the "~/.local/bin" directory is in your $PATH), and
+# then you will want to run "chmod +x ~/.local/bin/clid".
 
 # Get a unique identifier based on the current time.
 dndate () {
